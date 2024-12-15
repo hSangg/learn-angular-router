@@ -1,0 +1,27 @@
+<a class="back" href="javascript:void(0)">Back To Course</a>
+
+<div *ngIf="(lesson$ | async) as lesson" class="lesson-detail">
+
+    <h3>{{ lesson.description }}</h3>
+
+    <h5>Duration: {{ lesson.duration }}</h5>
+
+    <div class="video-container">
+
+        <mat-icon *ngIf="!lesson.first" class="nav-button">
+            navigate_before
+        </mat-icon>
+
+        <iframe [src]="('https://www.youtube.com/embed/' + lesson?.videoId) | safeUrl" allowfullscreen frameborder="0"
+                height="220"
+                width="400">
+
+        </iframe>
+
+        <mat-icon *ngIf="!lesson.last" class="nav-button">
+            navigate_next
+        </mat-icon>
+
+    </div>
+
+</div>
