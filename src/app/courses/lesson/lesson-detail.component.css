@@ -1,16 +1,19 @@
 
 .video-container {
+    width: 100%;
+    justify-content: center;
     display: flex;
     align-items: center;
 }
 
 h3, h2, h5, .back {
+    text-align: center;
     font-family: 'Roboto';
 }
 
 .back {
-    margin: 10px 0;
-    display: inline-block;
+    display: block;
+    margin: 30px auto;
 }
 
 .nav-button {

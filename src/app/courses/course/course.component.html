@@ -4,6 +4,7 @@
         <h3 *ngIf="couponCode" class="discount">Use {{ couponCode }} for a huge discount!</h3>
         <img *ngIf="course" [src]="course.iconUrl" class="course-thumbnail">
     </div>
+    <router-outlet></router-outlet>
 </ng-container>
 
 

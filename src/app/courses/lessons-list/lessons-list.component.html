@@ -1,19 +1,13 @@
 <h3>All Lessons</h3>
-
 <table *ngIf="lessons && lessons.length" class="lessons-table mat-elevation-z7">
-
     <thead>
-
     <th>#</th>
     <th>Description</th>
     <th>Duration</th>
-
     </thead>
-
-    <tr *ngFor="let lesson of lessons" class="lesson-row">
+    <tr *ngFor="let lesson of lessons" [routerLink]="['lessons', lesson.seqNo]" class="lesson-row">
         <td class="seqno-cell">{{ lesson.seqNo }}</td>
         <td class="description-cell">{{ lesson.description }}</td>
         <td class="duration-cell">{{ lesson.duration }}</td>
     </tr>
-
 </table>

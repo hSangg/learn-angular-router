@@ -13,13 +13,10 @@ export class LessonsListComponent implements OnInit {
     lessons: LessonSummary[];
 
     constructor(private route: ActivatedRoute) {
-
     }
 
     ngOnInit() {
-
+        console.log("ActivatedRoute snapshot at lessonsListComponent: ", this.route.snapshot.data);
         this.lessons = this.route.snapshot.data["lessons"];
-
     }
-
 }
