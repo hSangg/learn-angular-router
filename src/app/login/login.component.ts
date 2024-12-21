@@ -24,20 +24,18 @@ export class LoginComponent implements OnInit {
             email: ['test@angular-university.io', [Validators.required]],
             password: ['test', [Validators.required]]
         });
-
     }
 
     ngOnInit() {
-
     }
 
     login() {
 
         const val = this.form.value;
-
         this.auth.login(val.email, val.password)
             .subscribe(
                 () => {
+                    this.router.navigateByUrl("/courses")
                 },
                 err => {
                     alert("Login failed!");

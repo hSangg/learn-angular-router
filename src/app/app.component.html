@@ -1,18 +1,22 @@
 <mat-sidenav-container fullscreen>
     <mat-toolbar color="primary">
         <div class="toolbar-tools">
-            <a class="menu-item" mat-button routerLink="/courses">
+            <a [routerLinkActiveOptions]="{exact: true}" class="menu-item" mat-button routerLink="/courses"
+               routerLinkActive="menu-item-active">
                 <span>Courses</span>
             </a>
-            <a class="menu-item" mat-button routerLink="/about" routerLinkActive="menu-item-active">
+            <a [routerLinkActiveOptions]="{exact: true}" class="menu-item" mat-button routerLink="/about"
+               routerLinkActive="menu-item-active">
                 <span>About</span>
             </a>
-            <a class="menu-item" mat-button routerLink="/login" routerLinkActive="menu-item-active">
+            <a *ngIf="auth.isLoggedOut$ | async" class="menu-item" mat-button routerLink="/login"
+               routerLinkActive="menu-item-active">
                 <mat-icon>account_circle</mat-icon>
                 <span>Login</span>
             </a>
         </div>
-        <a *ngIf="auth.isLoggedIn$ | async" class="menu-item" mat-button>
+        <a *ngIf="auth.isLoggedIn$ | async" [routerLink]="[{outlets: {chat: ['helpdesk-chat']}}]" class="menu-item"
+           mat-button>
             <mat-icon>help</mat-icon>
         </a>
         <a (click)="logout()" *ngIf="auth.isLoggedIn$ | async" class="menu-item" mat-button>
@@ -30,3 +34,4 @@
     <router-outlet></router-outlet>
 </mat-sidenav-container>
 
+<router-outlet name="chat"></router-outlet>
